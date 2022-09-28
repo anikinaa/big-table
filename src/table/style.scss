@@ -1,0 +1,215 @@
+$borderColor: gray;
+$backgroundColor: white;
+$fontSize: 11px;
+$thead_ZIndex: 10;
+$column_ZIndex: 9;
+$hoverBoxShadow: 0 0 0 1000px rgba(0, 0, 0, 0.1) inset;
+
+$red: #ecbfbf;
+$blue: #b2d8f5;
+$green: #d4e3d4;
+$yellow: #f1f18e;
+$orange: #eecaa0;
+
+.big-table-wrap {
+  overflow: auto;
+  border: 1px solid $borderColor;
+  padding-bottom: 1px;
+}
+
+.big-table {
+  border-collapse: collapse;
+  font-size: $fontSize;
+  width: 100%;
+
+  & > thead,
+  & > tbody {
+    & > tr > td {
+      padding: 4px;
+      border-style: solid;
+      border-color: $borderColor;
+      border-width: 0 1px 1px 0;
+      text-align: center;
+
+      &.with-sub-table {
+        padding: 0;
+      }
+      table{
+        border-collapse: collapse;
+        width: 100%;
+
+        td {
+          border-bottom: 1px solid $borderColor;
+        }
+        tr:last-child td {
+          border-bottom: none;
+        }
+      }
+    }
+
+    & > tr:last-child > td {
+      border-bottom-width: 0;
+
+      &.row-divider:after {
+        display: none;
+      }
+    }
+
+    & > tr > td:last-child {
+      border-right-width: 0;
+    }
+  }
+
+  & > tbody > tr > td:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+  }
+  .hovered,
+  & > tbody > tr:hover > td {
+    box-shadow: $hoverBoxShadow;
+  }
+
+  thead.green td {
+    background-color: $green !important;
+  }
+  thead.blue td {
+    background-color: $blue !important;
+  }
+  thead.red td {
+    background-color: $red !important;
+  }
+  thead.yellow td {
+    background-color: $yellow !important;
+  }
+  thead.orange td {
+    background-color: $orange !important;
+  }
+
+  thead {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: $thead_ZIndex;
+
+    td {
+      text-align: center;
+      position: relative;
+      white-space: nowrap;
+
+      &:not(.fixed-column):before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        top: -1px;
+        bottom: -1px;
+        right: -1px;
+        background-color: $borderColor;
+      }
+      &:not(.fixed-column):after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        background-color: $borderColor;
+      }
+
+      &:last-child:before{
+        display: none;
+      }
+    }
+
+  }
+
+  .row-divider {
+    position: sticky;
+    z-index: $thead_ZIndex;
+    text-align: center;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: $borderColor;
+      right: 0;
+      left: 0;
+    }
+
+    &:before {
+      top: -1px;
+    }
+
+    &:after {
+      bottom: -1px;
+    }
+
+    div {
+      position: sticky;
+    }
+
+    &_no-sticky{
+      z-index: 1;
+    }
+  }
+
+  .fixed-column {
+    position: sticky;
+    z-index: $column_ZIndex;
+    background-color: $backgroundColor;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      top: -1px;
+      bottom: -1px;
+      background-color: $borderColor;
+    }
+
+    &:before {
+      left: -1px;
+    }
+
+    &:after {
+      right: -1px;
+    }
+  }
+
+  .green {
+    background-color: $green;
+  }
+  .blue {
+    background-color: $blue;
+  }
+  .red {
+    background-color: $red;
+  }
+  .yellow {
+    background-color: $yellow;
+  }
+  .orange {
+    background-color: $yellow;
+  }
+
+  .align-{
+    &left{
+      text-align: left;
+    }
+    &center{
+      text-align: center;
+    }
+    &right{
+      text-align: right;
+    }
+  }
+
+  .bold{
+    font-weight: bold;
+  }
+}
