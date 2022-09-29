@@ -16,11 +16,11 @@
 ![img_1.png](img_1.png)
 
 ## Установка и подключение
-`npm i @`
+`npm i @anikin/table`
 
 ```javascript
 //app.js
-window.Table = require('jquery');
+window.Table = require('@anikin/table');
 ```
 
 ## Конфигурация столбцов
