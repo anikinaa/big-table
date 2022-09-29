@@ -1,47 +1,37 @@
-require("./script.css");
-var $crn9m$lodash = require("lodash");
-
-function $parcel$defineInteropFlag(a) {
-  Object.defineProperty(a, '__esModule', {value: true, configurable: true});
-}
-function $parcel$export(e, n, v, s) {
-  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
-}
-
-$parcel$defineInteropFlag(module.exports);
-
-$parcel$export(module.exports, "default", () => $8feaf02265a2b007$export$54ec01a60f47d33d);
+import "./script.css";
+import {debounce as $cLX2e$debounce} from "lodash";
 
 
-function $e3b0dda5593459d2$export$1663e1d4d245d661(columns, codes = []) {
+
+function $9622164ec1de775b$export$1663e1d4d245d661(columns, codes = []) {
     columns.forEach(({ children: children , code: code  })=>{
         if (code) codes.push(code);
-        if (children) $e3b0dda5593459d2$export$1663e1d4d245d661(children, codes);
+        if (children) $9622164ec1de775b$export$1663e1d4d245d661(children, codes);
     });
     return codes;
 }
 
 
-function $e8a5bbb00d4d909a$export$cf13ac0605cc7091(rows) {
-    return rows.reduce((acc, { children: children  })=>children ? acc + $e8a5bbb00d4d909a$export$cf13ac0605cc7091(children) : acc + 1, 0);
+function $a4e1e9da20a48533$export$cf13ac0605cc7091(rows) {
+    return rows.reduce((acc, { children: children  })=>children ? acc + $a4e1e9da20a48533$export$cf13ac0605cc7091(children) : acc + 1, 0);
 }
 
 
-function $fc4d4751592cc969$export$2496bd952b3e0300(theadData) {
+function $64d9502a516479b8$export$2496bd952b3e0300(theadData) {
     return theadData[0].reduce((acc, item)=>item.colspan ? item.colspan + acc : acc + 1, 0);
 }
 
 
-function $a1f4c455fa3441c7$export$524484cb4e29ef80(columns, level = 0) {
+function $22934ef85597a6e0$export$524484cb4e29ef80(columns, level = 0) {
     const levels = columns.map(({ children: children , title: title  })=>{
         if (!title) return level - 1;
-        return children && title ? $a1f4c455fa3441c7$export$524484cb4e29ef80(children, level + 1) : level;
+        return children && title ? $22934ef85597a6e0$export$524484cb4e29ef80(children, level + 1) : level;
     });
     return Math.max(...levels);
 }
 
 
-function $1cc50f0566e47139$export$2e9d1c26dc8725f8(columns, maxLevel, level = 0, rows = []) {
+function $272eb42cc04882dc$export$2e9d1c26dc8725f8(columns, maxLevel, level = 0, rows = []) {
     const row = [];
     let childRows = [];
     columns.forEach(({ title: title , children: children , color: color , className: ch , code: code  })=>{
@@ -49,7 +39,7 @@ function $1cc50f0566e47139$export$2e9d1c26dc8725f8(columns, maxLevel, level = 0,
         if (ch) className.push(ch);
         if (code) className.push(`data-code-${code}`);
         if (children) {
-            const childrenClassNames = $1cc50f0566e47139$var$getChildrenClassNamesCodes(children);
+            const childrenClassNames = $272eb42cc04882dc$var$getChildrenClassNamesCodes(children);
             row.push({
                 title: title,
                 color: color,
@@ -57,7 +47,7 @@ function $1cc50f0566e47139$export$2e9d1c26dc8725f8(columns, maxLevel, level = 0,
                     ...className,
                     ...childrenClassNames
                 ],
-                colspan: $1cc50f0566e47139$var$getCountChildren(children)
+                colspan: $272eb42cc04882dc$var$getCountChildren(children)
             });
             childRows = [
                 ...childRows,
@@ -77,25 +67,25 @@ function $1cc50f0566e47139$export$2e9d1c26dc8725f8(columns, maxLevel, level = 0,
         }
     });
     rows.push(row);
-    if (childRows.length) $1cc50f0566e47139$export$2e9d1c26dc8725f8(childRows, maxLevel, level + 1, rows);
+    if (childRows.length) $272eb42cc04882dc$export$2e9d1c26dc8725f8(childRows, maxLevel, level + 1, rows);
     return rows;
 }
-function $1cc50f0566e47139$var$getCountChildren(items) {
+function $272eb42cc04882dc$var$getCountChildren(items) {
     let count = items.length;
     items.forEach(({ children: children  })=>{
         if (children) {
             count--;
-            count += $1cc50f0566e47139$var$getCountChildren(children);
+            count += $272eb42cc04882dc$var$getCountChildren(children);
         }
     });
     return count;
 }
-function $1cc50f0566e47139$var$getChildrenClassNamesCodes(items) {
+function $272eb42cc04882dc$var$getChildrenClassNamesCodes(items) {
     let className = [];
     items.forEach(({ children: children , code: code  })=>{
         if (code) className.push(`data-code-${code}`);
         if (children) {
-            const childrenClassNames = $1cc50f0566e47139$var$getChildrenClassNamesCodes(children);
+            const childrenClassNames = $272eb42cc04882dc$var$getChildrenClassNamesCodes(children);
             className = [
                 ...className,
                 ...childrenClassNames
@@ -107,13 +97,13 @@ function $1cc50f0566e47139$var$getChildrenClassNamesCodes(items) {
 
 
 
-function $21690849897d159c$export$65f773ad43475030(columns, colorColumns = {}, globalIndex = 0, parentColor) {
+function $b40f43accc756216$export$65f773ad43475030(columns, colorColumns = {}, globalIndex = 0, parentColor) {
     let localIndex = globalIndex;
     columns.forEach(({ color: color , children: children  })=>{
         if ((color || parentColor) && !children) colorColumns[localIndex] = color || parentColor;
         if (children) {
-            $21690849897d159c$export$65f773ad43475030(children, colorColumns, localIndex, color || parentColor);
-            localIndex += (0, $e8a5bbb00d4d909a$export$cf13ac0605cc7091)(children);
+            $b40f43accc756216$export$65f773ad43475030(children, colorColumns, localIndex, color || parentColor);
+            localIndex += (0, $a4e1e9da20a48533$export$cf13ac0605cc7091)(children);
         } else localIndex++;
     });
     return colorColumns;
@@ -122,32 +112,32 @@ function $21690849897d159c$export$65f773ad43475030(columns, colorColumns = {}, g
 
 
 
-const $8feaf02265a2b007$var$COLOR_CLASSES = [
+const $2b1c512910b77281$var$COLOR_CLASSES = [
     "green",
     "blue",
     "red",
     "yellow",
     "orange"
 ];
-class $8feaf02265a2b007$export$54ec01a60f47d33d {
+class $2b1c512910b77281$export$54ec01a60f47d33d {
     constructor(args){
         this.initialArgs = args;
         this.init();
         this.updateResize();
     }
     updateResize() {
-        window.addEventListener("resize", (0, $crn9m$lodash.debounce)(()=>this.init(), 300));
+        window.addEventListener("resize", (0, $cLX2e$debounce)(()=>this.init(), 300));
     }
     init() {
         const { columns: columns , root: root , maxHeight: maxHeight , fullHeight: fullHeight , data: data , headerColor: headerColor  } = this.initialArgs;
         this.root = root;
         this.data = data;
-        this.maxLevelColumns = (0, $a1f4c455fa3441c7$export$524484cb4e29ef80)(columns);
-        this.maxLevelData = (0, $a1f4c455fa3441c7$export$524484cb4e29ef80)(this.data, 1);
-        this.theadData = (0, $1cc50f0566e47139$export$2e9d1c26dc8725f8)(columns, this.maxLevelColumns);
-        this.countColumns = (0, $fc4d4751592cc969$export$2496bd952b3e0300)(this.theadData);
-        this.codes = (0, $e3b0dda5593459d2$export$1663e1d4d245d661)(columns);
-        this.colorColumns = (0, $21690849897d159c$export$65f773ad43475030)(columns);
+        this.maxLevelColumns = (0, $22934ef85597a6e0$export$524484cb4e29ef80)(columns);
+        this.maxLevelData = (0, $22934ef85597a6e0$export$524484cb4e29ef80)(this.data, 1);
+        this.theadData = (0, $272eb42cc04882dc$export$2e9d1c26dc8725f8)(columns, this.maxLevelColumns);
+        this.countColumns = (0, $64d9502a516479b8$export$2496bd952b3e0300)(this.theadData);
+        this.codes = (0, $9622164ec1de775b$export$1663e1d4d245d661)(columns);
+        this.colorColumns = (0, $b40f43accc756216$export$65f773ad43475030)(columns);
         this.createTable(maxHeight, fullHeight);
         setTimeout(()=>{
             this.renderThead(headerColor);
@@ -212,7 +202,7 @@ class $8feaf02265a2b007$export$54ec01a60f47d33d {
             td.innerHTML = title;
             td.classList.add(`align-${align}`);
             if (children) {
-                td.setAttribute("rowspan", (0, $e8a5bbb00d4d909a$export$cf13ac0605cc7091)(children).toString());
+                td.setAttribute("rowspan", (0, $a4e1e9da20a48533$export$cf13ac0605cc7091)(children).toString());
                 tr.append(td);
                 if (!prevTr || index > 0) this.tbody.append(tr);
                 this.renderTbodyRow(children.map((item)=>({
@@ -253,7 +243,7 @@ class $8feaf02265a2b007$export$54ec01a60f47d33d {
     }
     setColor(el, color) {
         if (color) {
-            if ($8feaf02265a2b007$var$COLOR_CLASSES.indexOf(color) >= 0) el.classList.add(color);
+            if ($2b1c512910b77281$var$COLOR_CLASSES.indexOf(color) >= 0) el.classList.add(color);
             else el.style.backgroundColor = color;
         }
     }
@@ -345,4 +335,5 @@ class $8feaf02265a2b007$export$54ec01a60f47d33d {
 
 
 
+export {$2b1c512910b77281$export$54ec01a60f47d33d as default};
 //# sourceMappingURL=script.js.map

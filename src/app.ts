@@ -1,5 +1,6 @@
 import { mock } from './table/table.mock'
-import Table from './table'
+const { Table } = require('../dist/big-table/script');
+
 
 new Table({
     ...mock,

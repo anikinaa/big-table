@@ -1,6 +1,6 @@
 {
   "name": "@anikin/table",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "big data table",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,11 +12,12 @@
     "url": "git+https://github.com/anikinaa/big-table"
   },
   "source": "src/table/global.ts",
-  "main": "dist/big-table/script.js",
+  "module": "dist/big-table/script.js",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
     "@parcel/transformer-sass": "2.7.0",
+    "@types/node": "^18.7.23",
     "parcel": "^2.7.0"
   },
   "dependencies": {
