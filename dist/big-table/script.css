@@ -1,0 +1,222 @@
+.big-table-wrap {
+  border: 1px solid gray;
+  padding-bottom: 1px;
+  overflow: auto;
+}
+
+.big-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 11px;
+}
+
+.big-table > thead > tr > td, .big-table > tbody > tr > td {
+  text-align: center;
+  border: 1px solid gray;
+  border-width: 0 1px 1px 0;
+  padding: 4px;
+}
+
+.big-table > thead > tr > td.with-sub-table, .big-table > tbody > tr > td.with-sub-table {
+  padding: 0;
+}
+
+.big-table > thead > tr > td table, .big-table > tbody > tr > td table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.big-table > thead > tr > td table td, .big-table > tbody > tr > td table td {
+  border-bottom: 1px solid gray;
+}
+
+.big-table > thead > tr > td table tr:last-child td, .big-table > tbody > tr > td table tr:last-child td {
+  border-bottom: none;
+}
+
+.big-table > thead > tr:last-child > td, .big-table > tbody > tr:last-child > td {
+  border-bottom-width: 0;
+}
+
+.big-table > thead > tr:last-child > td.row-divider:after, .big-table > tbody > tr:last-child > td.row-divider:after {
+  display: none;
+}
+
+.big-table > thead > tr > td:last-child, .big-table > tbody > tr > td:last-child {
+  border-right-width: 0;
+}
+
+.big-table > thead > tr > td:last-child {
+  position: relative;
+}
+
+.big-table > tbody > tr > td:before {
+  content: "";
+  width: 100%;
+  position: absolute;
+}
+
+.big-table .hovered, .big-table > tbody > tr:hover > td {
+  box-shadow: inset 0 0 0 1000px #0000001a;
+}
+
+.big-table thead.green td {
+  color: #002800;
+  background-color: #d4e3d4 !important;
+}
+
+.big-table thead.blue td {
+  color: #001628;
+  background-color: #b2d8f5 !important;
+}
+
+.big-table thead.red td {
+  color: #210000;
+  background-color: #ecbfbf !important;
+}
+
+.big-table thead.yellow td {
+  color: #383800;
+  background-color: #fdfd55 !important;
+}
+
+.big-table thead.orange td {
+  color: #2c1600;
+  background-color: #eecaa0 !important;
+}
+
+.big-table thead {
+  z-index: 10;
+  background: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.big-table thead td {
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+}
+
+.big-table thead td:not(.fixed-column):before {
+  content: "";
+  width: 1px;
+  background-color: gray;
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  right: -1px;
+}
+
+.big-table thead td:not(.fixed-column):after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+}
+
+.big-table thead td.no-border:before {
+  display: none;
+}
+
+.big-table .row-divider {
+  z-index: 10;
+  text-align: center;
+  position: sticky;
+}
+
+.big-table .row-divider:before, .big-table .row-divider:after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.big-table .row-divider:before {
+  top: -1px;
+}
+
+.big-table .row-divider:after {
+  bottom: -1px;
+}
+
+.big-table .row-divider div {
+  position: sticky;
+}
+
+.big-table .row-divider_no-sticky {
+  z-index: 1;
+}
+
+.big-table .fixed-column {
+  z-index: 9;
+  background-color: #fff;
+  position: sticky;
+}
+
+.big-table .fixed-column:before, .big-table .fixed-column:after {
+  content: "";
+  width: 1px;
+  background-color: gray;
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+}
+
+.big-table .fixed-column:before {
+  left: -1px;
+}
+
+.big-table .fixed-column:after {
+  right: -1px;
+}
+
+.big-table .green {
+  color: #002800;
+  background-color: #d4e3d4;
+}
+
+.big-table .blue {
+  color: #001628;
+  background-color: #b2d8f5;
+}
+
+.big-table .red {
+  color: #210000;
+  background-color: #ecbfbf;
+}
+
+.big-table .yellow {
+  color: #383800;
+  background-color: #fdfd55;
+}
+
+.big-table .orange {
+  color: #2c1600;
+  background-color: #eecaa0;
+}
+
+.big-table .align-left {
+  text-align: left;
+}
+
+.big-table .align-center {
+  text-align: center;
+}
+
+.big-table .align-right {
+  text-align: right;
+}
+
+.big-table .bold {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=script.css.map */

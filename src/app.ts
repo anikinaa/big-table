@@ -1,7 +1,6 @@
 import { mock } from './table/table.mock'
 import Table from './table'
 
-// window.BigTable = Table;
 new Table({
     ...mock,
     columns: [

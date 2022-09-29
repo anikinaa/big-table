@@ -1,10 +1,10 @@
 {
   "name": "@anikin/table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "big data table",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build",
+    "build": "parcel build src/table/index.ts",
     "start": "yarn parcel src/index.html"
   },
   "repository": {
@@ -13,7 +13,6 @@
   },
   "source": "src/table/global.ts",
   "main": "dist/big-table/script.js",
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
@@ -22,5 +21,9 @@
   },
   "dependencies": {
     "lodash": "^4.17.21"
-  }
+  },
+  "author": "Andrey Anikin",
+  "keywords": [
+    "table"
+  ]
 }
