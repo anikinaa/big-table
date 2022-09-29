@@ -1,6 +1,6 @@
 {
   "name": "@anikin/table",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "big data table",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/anikinaa/big-table"
   },
-  "module": "dist/big-table/script.js",
+  "source": "src/table/index.js",
+  "main": "dist/big-table/main.js",
+  "module": "dist/big-table/module.js",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
@@ -20,6 +22,7 @@
     "parcel": "^2.7.0"
   },
   "dependencies": {
+    "@anikin/table": "^1.0.4",
     "lodash": "^4.17.21"
   },
   "author": "Andrey Anikin",
