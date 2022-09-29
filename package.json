@@ -1,11 +1,15 @@
 {
-  "name": "big-table-js",
+  "name": "@anikin/table",
   "version": "1.0.0",
   "description": "big data table",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "parcel build",
     "start": "yarn parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anikinaa/big-table"
   },
   "source": "src/table/global.ts",
   "main": "dist/big-table/script.js",
