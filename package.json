@@ -1,6 +1,6 @@
 {
   "name": "@anikin/table",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "big data table",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,7 +22,6 @@
     "parcel": "^2.7.0"
   },
   "dependencies": {
-    "@anikin/table": "^1.0.4",
     "lodash": "^4.17.21"
   },
   "author": "Andrey Anikin",

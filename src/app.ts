@@ -1,8 +1,7 @@
 import { mock } from './table/table.mock'
-const { Table } = require('../dist/big-table/script');
-// const Table = require('@anikin/table');
+import Table from './table'
 
-
+// window.BigTable = Table;
 new Table({
     ...mock,
     columns: [
