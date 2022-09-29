@@ -6,10 +6,15 @@ $column_ZIndex: 9;
 $hoverBoxShadow: 0 0 0 1000px rgba(0, 0, 0, 0.1) inset;
 
 $red: #ecbfbf;
+$redFont: #210000;
 $blue: #b2d8f5;
+$blueFont: #001628;
 $green: #d4e3d4;
-$yellow: #f1f18e;
+$greenFont: #002800;
+$yellow: #fdfd55;
+$yellowFont: #383800;
 $orange: #eecaa0;
+$orangeFont: #2c1600;
 
 .big-table-wrap {
   overflow: auto;
@@ -60,6 +65,9 @@ $orange: #eecaa0;
     }
   }
 
+  & > thead > tr > td:last-child {
+    position: relative;
+  }
   & > tbody > tr > td:before {
     content: '';
     position: absolute;
@@ -72,18 +80,23 @@ $orange: #eecaa0;
 
   thead.green td {
     background-color: $green !important;
+    color: $greenFont;
   }
   thead.blue td {
     background-color: $blue !important;
+    color: $blueFont;
   }
   thead.red td {
     background-color: $red !important;
+    color: $redFont;
   }
   thead.yellow td {
     background-color: $yellow !important;
+    color: $yellowFont;
   }
   thead.orange td {
     background-color: $orange !important;
+    color: $orangeFont;
   }
 
   thead {
@@ -117,7 +130,7 @@ $orange: #eecaa0;
         background-color: $borderColor;
       }
 
-      &:last-child:before{
+      &.no-border:before{
         display: none;
       }
     }
@@ -183,18 +196,23 @@ $orange: #eecaa0;
 
   .green {
     background-color: $green;
+    color: $greenFont;
   }
   .blue {
     background-color: $blue;
+    color: $blueFont;
   }
   .red {
     background-color: $red;
+    color: $redFont;
   }
   .yellow {
     background-color: $yellow;
+    color: $yellowFont;
   }
   .orange {
-    background-color: $yellow;
+    background-color: $orange;
+    color: $orangeFont;
   }
 
   .align-{

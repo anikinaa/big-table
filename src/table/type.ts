@@ -27,7 +27,7 @@ export type TTable = {
     columns: TColumn[];
     root: HTMLElement;
     maxHeight?: number;
-    fillHeight?: boolean;
+    fullHeight?: boolean;
     headerColor?: TColor;
 }
 

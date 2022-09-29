@@ -4,7 +4,8 @@
   "description": "big data table",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build"
+    "build": "parcel build",
+    "start": "yarn parcel src/index.html"
   },
   "source": "src/table/global.ts",
   "main": "dist/big-table/script.js",
@@ -16,7 +17,6 @@
     "parcel": "^2.7.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "throttle-typescript": "^1.1.0"
+    "lodash": "^4.17.21"
   }
 }

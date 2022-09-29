@@ -1,3 +1,4 @@
+import './style.scss'
 import { debounce } from 'lodash';
 import type { TData, TTheadData, TTable } from './type'
 import {
@@ -9,7 +10,7 @@ import {
     getColorColumns,
 } from './libs'
 
-const COLOR_CLASSES = ['green', 'blue', 'red']
+const COLOR_CLASSES = ['green', 'blue', 'red', 'yellow', 'orange']
 
 export class Table {
     maxLevelColumns: number;
@@ -39,7 +40,7 @@ export class Table {
     }
 
     init() {
-        const { columns, root, maxHeight, fillHeight, data, headerColor } = this.initialArgs;
+        const { columns, root, maxHeight, fullHeight, data, headerColor } = this.initialArgs;
 
         this.root = root;
         this.data = data;
@@ -50,7 +51,7 @@ export class Table {
         this.codes = getCodesSort(columns);
         this.colorColumns = getColorColumns(columns);
 
-        this.createTable(maxHeight, fillHeight);
+        this.createTable(maxHeight, fullHeight);
 
         setTimeout(() => {
             this.renderThead(headerColor);
@@ -64,13 +65,13 @@ export class Table {
         }, 200)
     }
 
-    createTable(maxHeight: number = 600, fillHeight: boolean) {
+    createTable(maxHeight: number = 600, fullHeight: boolean) {
         this.table = document.createElement('table');
         this.table.setAttribute('cellspacing', '0');
         this.table.setAttribute('class', 'big-table');
         this.root.classList.add('big-table-wrap');
         this.root.innerHTML = '';
-        if (fillHeight) {
+        if (fullHeight) {
             const top = this.root.getBoundingClientRect()?.top;
             this.root.style.maxHeight = `${window.innerHeight - top}px`;
         } else {
@@ -86,6 +87,7 @@ export class Table {
 
         this.theadData.forEach((columns) => {
             const tr = document.createElement('tr');
+            let countColumn = 0;
             columns.forEach(({ title, colspan, rowspan, color, className }) => {
                 const td = document.createElement('td');
                 td.innerHTML = title;
@@ -96,6 +98,12 @@ export class Table {
                         td.classList.add(ch)
                     })
                 }
+
+                countColumn += colspan || 1;
+                if (countColumn === this.countColumns) {
+                    td.classList.add('no-border')
+                }
+
                 if (colspan) {
                     td.setAttribute('colspan', colspan.toString())
                 }
@@ -103,6 +111,7 @@ export class Table {
                 if (rowspan) {
                     td.setAttribute('rowspan', rowspan.toString())
                 }
+
                 tr.append(td);
             })
             this.thead.append(tr);

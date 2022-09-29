@@ -1493,11 +1493,6 @@ terser@^5.2.0:
     commander "^2.20.0"
     source-map-support "~0.5.20"
 
-throttle-typescript@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/throttle-typescript/-/throttle-typescript-1.1.0.tgz#548b8e6f20bdcc81b6225104da282e0748a53dec"
-  integrity sha512-pxQ+jaKIZZBkRJxbc+CoH3ubz59zgfd8qr0GqHb5NiAIhwHp5SWCHdVnujv/t87EcnFw7BbNrzyLWxNJ1+K6Mg==
-
 timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"

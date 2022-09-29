@@ -214,7 +214,13 @@ let mockData: TData[] = [
 //     title: faker.vehicle.vehicle()
 // })
 
-mockColumn[4].color = 'blue';
+mockColumn[1].color = 'orange';
+mockColumn.push(
+    {
+        title: faker.music.genre(),
+        color: 'red',
+        code: 'code1'
+    },)
 
 export const mock = {
     columns: mockColumn,
