@@ -1,4 +1,6 @@
 .idea
 .parcel-cache
 node_modules
-dist
+dist/*.css
+dist/*.js
+dist/*.html
