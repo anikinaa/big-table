@@ -57,7 +57,7 @@
 }
 
 .big-table .hovered, .big-table > tbody > tr:hover > td {
-  box-shadow: inset 0 0 0 1000px #0000001a;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .1);
 }
 
 .big-table thead.green td {
@@ -219,4 +219,4 @@
   font-weight: bold;
 }
 
-/*# sourceMappingURL=script.css.map */
+/*# sourceMappingURL=main.css.map */

@@ -54,9 +54,22 @@ new Table({
                 // строка c данными
                 {
                     title: 'Rock',
-                    values: {
-                        code1: 5
+                    children: [{
+
+                        children: [
+                            {
+                                values: {
+                                    code1: 15
+                                }
+                            },
+                            {
+                                values: {
+                                    code1: [25, 56]
+                                }
+                            }
+                        ]
                     }
+                    ]
                 }
             ],
         }, {

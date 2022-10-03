@@ -1,6 +1,6 @@
 {
   "name": "@anikin/table",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "big data table",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,10 +22,14 @@
     "parcel": "^2.7.0"
   },
   "dependencies": {
+    "@swc/helpers": "^0.4.11",
     "lodash": "^4.17.21"
   },
   "author": "Andrey Anikin",
   "keywords": [
     "table"
+  ],
+  "browserslist": [
+    "firefox 44"
   ]
 }

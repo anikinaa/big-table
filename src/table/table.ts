@@ -77,7 +77,7 @@ export class Table {
         } else {
             this.root.style.maxHeight = `${maxHeight}px`;
         }
-        this.root.append(this.table);
+        this.root.appendChild(this.table);
     }
 
     renderThead(headerColor: TData['color']) {
@@ -112,18 +112,18 @@ export class Table {
                     td.setAttribute('rowspan', rowspan.toString())
                 }
 
-                tr.append(td);
+                tr.appendChild(td);
             })
-            this.thead.append(tr);
+            this.thead.appendChild(tr);
         });
 
-        this.table.append(this.thead);
+        this.table.appendChild(this.thead);
     }
 
     renderTbody() {
         this.tbody = document.createElement('tbody');
         this.renderTbodyRow(this.data);
-        this.table.append(this.tbody);
+        this.table.appendChild(this.tbody);
     }
 
     renderTbodyRow(
@@ -155,10 +155,10 @@ export class Table {
 
             if (children) {
                 td.setAttribute('rowspan', getCountChildren(children).toString());
-                tr.append(td);
+                tr.appendChild(td);
 
                 if (!prevTr || index > 0) {
-                    this.tbody.append(tr);
+                    this.tbody.appendChild(tr);
                 }
 
                 this.renderTbodyRow(children.map(item => ({
@@ -171,12 +171,12 @@ export class Table {
 
                 td.setAttribute('colspan', (tail).toString());
                 if (title) {
-                    tr.append(td);
+                    tr.appendChild(td);
                 }
 
                 this.renderValues(tr, values, color);
 
-                this.tbody.append(tr);
+                this.tbody.appendChild(tr);
             } else {
                 this.renderRowDivider(tr, item, curColumn);
             }
@@ -205,10 +205,10 @@ export class Table {
         wrap.style.width = `${this.root.offsetWidth - 30}px`;
         wrap.style.left = `5px`;
         wrap.setAttribute('class', 'sticky-row-wrap')
-        td.append(wrap)
-        tr.append(td);
+        td.appendChild(wrap)
+        tr.appendChild(td);
 
-        this.tbody.append(tr);
+        this.tbody.appendChild(tr);
     }
 
     setColor(el: HTMLElement, color: TData['color']) {
@@ -238,17 +238,17 @@ export class Table {
                     const subTd = document.createElement('td');
                     subTd.innerHTML = val.toString();
 
-                    subTr.append(subTd);
-                    subTbody.append(subTr);
+                    subTr.appendChild(subTd);
+                    subTbody.appendChild(subTr);
                 });
                 td.classList.add('with-sub-table')
 
-                subTable.append(subTbody);
-                td.append(subTable);
+                subTable.appendChild(subTbody);
+                td.appendChild(subTable);
             } else if (value) {
                 td.innerHTML = value.toString();
             }
-            tr.append(td);
+            tr.appendChild(td);
         })
     }
 
