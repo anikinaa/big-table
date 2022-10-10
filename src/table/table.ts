@@ -30,7 +30,6 @@ export class Table {
 
     constructor(args: TTable) {
 
-        console.log(args.data)
         this.initialArgs = args;
         this.init();
 
@@ -75,11 +74,15 @@ export class Table {
          wrap.classList.add('big-table-wrap');
         this.root.classList.add('big-table-wrap__border');
         this.root.innerHTML = '';
+
         if (fullHeight) {
             const top = this.root.getBoundingClientRect()?.top;
             this.root.style.maxHeight = `${window.innerHeight - top}px`;
+            wrap.style.maxHeight = `${window.innerHeight - top}px`;
+
         } else {
             this.root.style.maxHeight = `${maxHeight}px`;
+            wrap.style.maxHeight = `${maxHeight}px`;
         }
         wrap.appendChild(this.table);
         this.root.appendChild(wrap);
