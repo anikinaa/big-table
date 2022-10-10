@@ -153,6 +153,7 @@ var $8554213740643d43$export$54ec01a60f47d33d = /*#__PURE__*/ function() {
     "use strict";
     function Table(args) {
         (0, $8554213740643d43$import$f319d06aa2d670dd$2e2bcd8739ae039)(this, Table);
+        console.log(args.data);
         this.initialArgs = args;
         this.init();
         this.updateResize();
@@ -195,14 +196,17 @@ var $8554213740643d43$export$54ec01a60f47d33d = /*#__PURE__*/ function() {
                 this.table = document.createElement("table");
                 this.table.setAttribute("cellspacing", "0");
                 this.table.setAttribute("class", "big-table");
-                this.root.classList.add("big-table-wrap");
+                var wrap = document.createElement("div");
+                wrap.classList.add("big-table-wrap");
+                this.root.classList.add("big-table-wrap__border");
                 this.root.innerHTML = "";
                 if (fullHeight) {
                     var ref;
                     var top = (ref = this.root.getBoundingClientRect()) === null || ref === void 0 ? void 0 : ref.top;
                     this.root.style.maxHeight = `${window.innerHeight - top}px`;
                 } else this.root.style.maxHeight = `${maxHeight}px`;
-                this.root.appendChild(this.table);
+                wrap.appendChild(this.table);
+                this.root.appendChild(wrap);
             }
         },
         {
@@ -222,7 +226,9 @@ var $8554213740643d43$export$54ec01a60f47d33d = /*#__PURE__*/ function() {
                             td.classList.add(ch);
                         });
                         countColumn += colspan || 1;
-                        if (countColumn === this.countColumns) td.classList.add("no-border");
+                        // if (countColumn === this.countColumns) {
+                        //     td.classList.add('no-border')
+                        // }
                         if (colspan) td.setAttribute("colspan", colspan.toString());
                         if (rowspan) td.setAttribute("rowspan", rowspan.toString());
                         tr.appendChild(td);

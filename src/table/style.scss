@@ -1,6 +1,7 @@
 $borderColor: gray;
 $backgroundColor: white;
 $fontSize: 11px;
+$wrap_ZIndex: 11;
 $thead_ZIndex: 10;
 $column_ZIndex: 9;
 $hoverBoxShadow: 0 0 0 1000px rgba(0, 0, 0, 0.1) inset;
@@ -16,10 +17,37 @@ $yellowFont: #383800;
 $orange: #eecaa0;
 $orangeFont: #2c1600;
 
+.big-table-wrap__border {
+  position: relative;
+
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: $wrap_ZIndex;
+    background-color: $borderColor;
+  }
+
+  &:before {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+  }
+
+  &:after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+  }
+}
+
 .big-table-wrap {
   overflow: auto;
-  border: 1px solid $borderColor;
-  padding-bottom: 1px;
+  box-sizing: border-box;
+  padding: 0 1px 1px 0;
+  border-left: 1px solid $borderColor;
 }
 
 .big-table {
@@ -33,19 +61,21 @@ $orangeFont: #2c1600;
       padding: 4px;
       border-style: solid;
       border-color: $borderColor;
-      border-width: 0 1px 1px 0;
+      border-width: 1px 1px 0 0;
       text-align: center;
 
       &.with-sub-table {
         padding: 0;
       }
-      table{
+
+      table {
         border-collapse: collapse;
         width: 100%;
 
         td {
           border-bottom: 1px solid $borderColor;
         }
+
         tr:last-child td {
           border-bottom: none;
         }
@@ -62,17 +92,24 @@ $orangeFont: #2c1600;
 
     & > tr > td:last-child {
       border-right-width: 0;
+
+      &:before {
+
+      }
     }
   }
 
   & > thead > tr > td:last-child {
     position: relative;
+    border-right-width: 0;
   }
+
   & > tbody > tr > td:before {
     content: '';
     position: absolute;
     width: 100%;
   }
+
   .hovered,
   & > tbody > tr:hover > td {
     box-shadow: $hoverBoxShadow;
@@ -82,18 +119,22 @@ $orangeFont: #2c1600;
     background-color: $green !important;
     color: $greenFont;
   }
+
   thead.blue td {
     background-color: $blue !important;
     color: $blueFont;
   }
+
   thead.red td {
     background-color: $red !important;
     color: $redFont;
   }
+
   thead.yellow td {
     background-color: $yellow !important;
     color: $yellowFont;
   }
+
   thead.orange td {
     background-color: $orange !important;
     color: $orangeFont;
@@ -104,6 +145,10 @@ $orangeFont: #2c1600;
     position: sticky;
     top: 0;
     z-index: $thead_ZIndex;
+
+    tr > td:last-child:before {
+      display: none;
+    }
 
     td {
       text-align: center;
@@ -119,6 +164,7 @@ $orangeFont: #2c1600;
         right: -1px;
         background-color: $borderColor;
       }
+
       &:not(.fixed-column):after {
         content: '';
         position: absolute;
@@ -130,9 +176,10 @@ $orangeFont: #2c1600;
         background-color: $borderColor;
       }
 
-      &.no-border:before{
+      &.no-border:before {
         display: none;
       }
+
     }
 
   }
@@ -165,7 +212,7 @@ $orangeFont: #2c1600;
       position: sticky;
     }
 
-    &_no-sticky{
+    &_no-sticky {
       z-index: 1;
     }
   }
@@ -179,18 +226,23 @@ $orangeFont: #2c1600;
     &:after {
       content: '';
       position: absolute;
-      width: 1px;
-      top: -1px;
-      bottom: -1px;
       background-color: $borderColor;
     }
 
     &:before {
       left: -1px;
+      right: -2px;
+      top: -1px;
+      height: 1px;
+      width: auto;
     }
 
     &:after {
+      top: -1px;
+      bottom: -1px;
       right: -1px;
+      width: 1px;
+      height: auto;
     }
   }
 
@@ -198,36 +250,42 @@ $orangeFont: #2c1600;
     background-color: $green;
     color: $greenFont;
   }
+
   .blue {
     background-color: $blue;
     color: $blueFont;
   }
+
   .red {
     background-color: $red;
     color: $redFont;
   }
+
   .yellow {
     background-color: $yellow;
     color: $yellowFont;
   }
+
   .orange {
     background-color: $orange;
     color: $orangeFont;
   }
 
-  .align-{
-    &left{
+  .align- {
+    &left {
       text-align: left;
     }
-    &center{
+
+    &center {
       text-align: center;
     }
-    &right{
+
+    &right {
       text-align: right;
     }
   }
 
-  .bold{
+  .bold {
     font-weight: bold;
   }
 }

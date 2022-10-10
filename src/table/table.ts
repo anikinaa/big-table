@@ -12,6 +12,7 @@ import {
 
 const COLOR_CLASSES = ['green', 'blue', 'red', 'yellow', 'orange']
 
+
 export class Table {
     maxLevelColumns: number;
     maxLevelData: number;
@@ -29,6 +30,7 @@ export class Table {
 
     constructor(args: TTable) {
 
+        console.log(args.data)
         this.initialArgs = args;
         this.init();
 
@@ -69,7 +71,9 @@ export class Table {
         this.table = document.createElement('table');
         this.table.setAttribute('cellspacing', '0');
         this.table.setAttribute('class', 'big-table');
-        this.root.classList.add('big-table-wrap');
+        const wrap = document.createElement('div');
+         wrap.classList.add('big-table-wrap');
+        this.root.classList.add('big-table-wrap__border');
         this.root.innerHTML = '';
         if (fullHeight) {
             const top = this.root.getBoundingClientRect()?.top;
@@ -77,7 +81,8 @@ export class Table {
         } else {
             this.root.style.maxHeight = `${maxHeight}px`;
         }
-        this.root.appendChild(this.table);
+        wrap.appendChild(this.table);
+        this.root.appendChild(wrap);
     }
 
     renderThead(headerColor: TData['color']) {
@@ -100,9 +105,9 @@ export class Table {
                 }
 
                 countColumn += colspan || 1;
-                if (countColumn === this.countColumns) {
-                    td.classList.add('no-border')
-                }
+                // if (countColumn === this.countColumns) {
+                //     td.classList.add('no-border')
+                // }
 
                 if (colspan) {
                     td.setAttribute('colspan', colspan.toString())
