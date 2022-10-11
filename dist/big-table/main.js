@@ -153,7 +153,6 @@ var $8554213740643d43$export$54ec01a60f47d33d = /*#__PURE__*/ function() {
     "use strict";
     function Table(args) {
         (0, $8554213740643d43$import$f319d06aa2d670dd$2e2bcd8739ae039)(this, Table);
-        console.log(args.data);
         this.initialArgs = args;
         this.init();
         this.updateResize();
@@ -204,7 +203,11 @@ var $8554213740643d43$export$54ec01a60f47d33d = /*#__PURE__*/ function() {
                     var ref;
                     var top = (ref = this.root.getBoundingClientRect()) === null || ref === void 0 ? void 0 : ref.top;
                     this.root.style.maxHeight = `${window.innerHeight - top}px`;
-                } else this.root.style.maxHeight = `${maxHeight}px`;
+                    wrap.style.maxHeight = `${window.innerHeight - top}px`;
+                } else {
+                    this.root.style.maxHeight = `${maxHeight}px`;
+                    wrap.style.maxHeight = `${maxHeight}px`;
+                }
                 wrap.appendChild(this.table);
                 this.root.appendChild(wrap);
             }
